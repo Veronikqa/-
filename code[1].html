@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ШАХМАТНАЯ ГИЛЬДИЯ «МОНОЛИТ»</title>
+<!-- Fonts: Noto Serif for Headlines, Inter for Body -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,700;0,800;1,700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#1a1c1c",
+              "surface-container-high": "#e8e8e8",
+              "inverse-on-surface": "#f1f1f1",
+              "on-background": "#1a1c1c",
+              "surface": "#f9f9f9",
+              "on-tertiary-fixed-variant": "#e2e2e2",
+              "on-tertiary": "#e2e2e2",
+              "on-surface-variant": "#474747",
+              "surface-container-lowest": "#ffffff",
+              "primary": "#000000",
+              "secondary-fixed-dim": "#acabab",
+              "surface-dim": "#dadada",
+              "surface-variant": "#e2e2e2",
+              "error": "#ba1a1a",
+              "outline-variant": "#c6c6c6",
+              "surface-container-highest": "#e2e2e2",
+              "primary-fixed": "#5e5e5e",
+              "surface-container-low": "#f3f3f3",
+              "outline": "#777777",
+              "on-primary-container": "#ffffff",
+              "on-secondary": "#ffffff",
+              "inverse-primary": "#c6c6c6",
+              "on-tertiary-container": "#ffffff",
+              "surface-container": "#eeeeee",
+              "tertiary": "#3a3c3c",
+              "on-secondary-fixed": "#1b1c1c",
+              "secondary-fixed": "#c8c6c6",
+              "secondary-container": "#d6d4d3",
+              "on-error": "#ffffff",
+              "on-primary-fixed-variant": "#e2e2e2",
+              "tertiary-fixed-dim": "#454747",
+              "primary-fixed-dim": "#474747",
+              "on-secondary-container": "#1b1c1c",
+              "background": "#f9f9f9",
+              "on-tertiary-fixed": "#ffffff",
+              "on-error-container": "#410002",
+              "on-primary-fixed": "#ffffff",
+              "tertiary-container": "#737575",
+              "surface-bright": "#f9f9f9",
+              "inverse-surface": "#2f3131",
+              "tertiary-fixed": "#5d5f5f",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#3b3b3b",
+              "primary-container": "#3b3b3b",
+              "surface-tint": "#5e5e5e",
+              "on-primary": "#e2e2e2",
+              "secondary": "#5f5e5e"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif", "serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f9f9f9;
+        color: #1a1c1c;
+      }
+      h1, h2, h3, .font-serif {
+        font-family: 'Noto Serif', serif;
+      }
+      .chess-grid {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        aspect-ratio: 1 / 1;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Top Navigation (Shared Component: TopNavBar) -->
+<nav class="bg-white dark:bg-black flex justify-between items-center w-full px-12 py-6 max-w-full mx-auto fixed top-0 z-50">
+<div class="text-2xl font-bold tracking-tighter text-black dark:text-white font-serif">МОНОЛИТ</div>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="text-black dark:text-white border-b-2 border-black dark:border-white pb-1 font-bold text-sm font-label uppercase tracking-widest" href="#">Главная</a>
+<a class="text-gray-500 dark:text-gray-400 font-medium hover:text-black dark:hover:text-white transition-colors duration-200 text-sm font-label uppercase tracking-widest" href="#">Рейтинг</a>
+<a class="text-gray-500 dark:text-gray-400 font-medium hover:text-black dark:hover:text-white transition-colors duration-200 text-sm font-label uppercase tracking-widest" href="#">Задачи недели</a>
+<a class="text-gray-500 dark:text-gray-400 font-medium hover:text-black dark:hover:text-white transition-colors duration-200 text-sm font-label uppercase tracking-widest" href="#">Регистрация на турнир</a>
+<a class="text-gray-500 dark:text-gray-400 font-medium hover:text-black dark:hover:text-white transition-colors duration-200 text-sm font-label uppercase tracking-widest" href="#">О нас</a>
+</div>
+<button class="bg-primary text-on-primary-container px-6 py-2 text-sm font-label uppercase tracking-tighter hover:bg-primary-fixed transition-colors active:scale-95 duration-150">
+            Войти
+        </button>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="px-12 py-32 grid grid-cols-12 gap-8 items-center bg-surface-container-low">
+<div class="col-span-12 lg:col-span-7">
+<h1 class="text-7xl lg:text-9xl font-headline font-extrabold tracking-tighter leading-tight mb-8">Овладейте искусством стратегии.</h1>
+<p class="text-xl lg:text-2xl font-body text-on-surface-variant max-w-2xl mb-12 leading-relaxed">
+                    Основанная на принципах расчетливого риска и интеллектуальной строгости. Шахматная гильдия «Монолит» хранит наследие игры через бескомпромиссную дисциплину.
+                </p>
+<button class="bg-black text-white px-10 py-5 text-lg font-label uppercase tracking-widest hover:bg-primary-fixed transition-all">
+                    Вступить в гильдию
+                </button>
+</div>
+<div class="hidden lg:block col-span-5 relative">
+<div class="aspect-square bg-primary flex items-center justify-center overflow-hidden">
+<img alt="The King" class="w-full h-full object-cover mix-blend-luminosity opacity-80" data-alt="Dramatic close-up of a black marble chess king piece standing alone in dark high-contrast studio lighting with subtle smoke" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhy7Vq6y4sXjaI5ONRXpFW6Xsr2OoWhwiBHMMoI5-CjLSOfPGCGN2emSZWwPFQ6Rt0P32vT8Q89fNCThVrGe1abNVOSFj8A9Ip-emeqfu6DEBBnjiXWS9uKh7d823QDmr4EPOyMlmqbC3ypOCXnFLVPMWfV9u_MOjjOjnVljDiOQijCVHsy6zSr4ecuSk3icnGdyKj61e_a2Mdab0Z5E9qShTaXOYaX7saceEd4ayrmThuYdH4rzzLGwRi1wxUeRv4r0Ei84iboEM"/>
+</div>
+<div class="absolute -bottom-8 -left-8 bg-surface-container-lowest p-8 border border-outline-variant/10 shadow-xl">
+<span class="block text-4xl font-headline font-bold">1924</span>
+<span class="block text-xs font-label uppercase tracking-widest opacity-60">Наследие с 1924 года</span>
+</div>
+</div>
+</section>
+<!-- Rating Table: Grandmaster’s Leaderboard -->
+<section class="px-12 py-24 bg-surface">
+<div class="flex justify-between items-end mb-16 border-b border-on-surface/10 pb-8">
+<div>
+<h2 class="text-4xl font-headline font-bold tracking-tight">Таблица лидеров</h2>
+<p class="text-sm font-label uppercase tracking-widest mt-2 opacity-60">Актуальный рейтинг Эло — Сезон 4</p>
+</div>
+<button class="text-sm font-label border-b border-primary pb-1 hover:opacity-50 transition-opacity">ПОСМОТРЕТЬ ВЕСЬ АРХИВ</button>
+</div>
+<div class="overflow-hidden bg-surface-container-lowest">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container text-xs font-label uppercase tracking-widest">
+<tr>
+<th class="px-8 py-6 font-semibold">Ранг</th>
+<th class="px-8 py-6 font-semibold">Игрок</th>
+<th class="px-8 py-6 font-semibold text-right">Рейтинг</th>
+<th class="px-8 py-6 font-semibold text-right">П/П/Н</th>
+<th class="px-8 py-6 font-semibold text-right">Тренд</th>
+</tr>
+</thead>
+<tbody class="text-sm font-body">
+<tr class="border-b border-surface-container hover:bg-surface-container-low transition-colors">
+<td class="px-8 py-8 font-bold">01</td>
+<td class="px-8 py-8 font-headline font-bold text-lg">Г. КАСПАРОВ</td>
+<td class="px-8 py-8 text-right font-mono tracking-tighter">2842</td>
+<td class="px-8 py-8 text-right opacity-60">142 - 12 - 45</td>
+<td class="px-8 py-8 text-right text-green-600">+12</td>
+</tr>
+<tr class="border-b border-surface-container hover:bg-surface-container-low transition-colors">
+<td class="px-8 py-8 font-bold">02</td>
+<td class="px-8 py-8 font-headline font-bold text-lg">Ю. ПОЛГАР</td>
+<td class="px-8 py-8 text-right font-mono tracking-tighter">2795</td>
+<td class="px-8 py-8 text-right opacity-60">128 - 18 - 32</td>
+<td class="px-8 py-8 text-right text-green-600">+4</td>
+</tr>
+<tr class="border-b border-surface-container hover:bg-surface-container-low transition-colors">
+<td class="px-8 py-8 font-bold">03</td>
+<td class="px-8 py-8 font-headline font-bold text-lg">М. КАРЛСЕН</td>
+<td class="px-8 py-8 text-right font-mono tracking-tighter">2788</td>
+<td class="px-8 py-8 text-right opacity-60">110 - 24 - 15</td>
+<td class="px-8 py-8 text-right text-red-600">-8</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-8 py-8 font-bold">04</td>
+<td class="px-8 py-8 font-headline font-bold text-lg">В. АНАНД</td>
+<td class="px-8 py-8 text-right font-mono tracking-tighter">2754</td>
+<td class="px-8 py-8 text-right opacity-60">98 - 30 - 40</td>
+<td class="px-8 py-8 text-right opacity-40">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Weekly Puzzles & Tournament Reg (Bento Grid) -->
+<section class="px-12 py-24 grid grid-cols-12 gap-12">
+<!-- Weekly Puzzle -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-high p-12 flex flex-col justify-between">
+<div>
+<h2 class="text-4xl font-headline font-bold mb-4">Задача недели</h2>
+<p class="text-lg font-body mb-8 opacity-70 italic">«Суть шахмат — в поиске истины» — Мат в 3 хода</p>
+<div class="chess-grid w-full max-w-md mx-auto border-4 border-black mb-12">
+<!-- Chessboard Visualization (Simplified) -->
+<div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div>
+<div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface flex items-center justify-center text-surface text-4xl font-serif">♘</div><div class="bg-surface-container-lowest"></div>
+<div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface flex items-center justify-center text-surface text-4xl font-serif">♟</div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div>
+<div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div>
+<div class="bg-surface-container-lowest"></div><div class="bg-on-surface flex items-center justify-center text-surface text-4xl font-serif">♚</div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div>
+<div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest flex items-center justify-center text-primary text-4xl font-serif">♕</div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div>
+<div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div>
+<div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div><div class="bg-on-surface"></div><div class="bg-surface-container-lowest"></div>
+</div>
+</div>
+<button class="w-full bg-white text-black py-6 font-label uppercase tracking-widest border border-black hover:bg-black hover:text-white transition-all">Отправить решение</button>
+</div>
+<!-- Tournament Registration -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-12">
+<div class="bg-black text-white p-12 flex-grow flex flex-col justify-center">
+<span class="text-xs font-label uppercase tracking-[0.3em] mb-4 opacity-60">Ближайший турнир</span>
+<h2 class="text-5xl font-headline font-bold leading-none mb-8">Открытый полуночный турнир</h2>
+<div class="space-y-6 mb-12">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline-variant">calendar_today</span>
+<span class="font-body text-lg">14 декабря — 22:00 GMT</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline-variant">payments</span>
+<span class="font-body text-lg">Призовой фонд: $15,000 USD</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline-variant">location_on</span>
+<span class="font-body text-lg">Онлайн и в клубе (Берлин)</span>
+</div>
+</div>
+<button class="bg-white text-black py-6 text-sm font-label uppercase tracking-[0.2em] font-bold hover:bg-surface-container-high transition-all">Зарегистрироваться</button>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/20 p-8">
+<h3 class="text-xl font-headline font-bold mb-4">Последние архивы</h3>
+<ul class="space-y-4">
+<li class="flex justify-between items-center py-2 border-b border-surface-container">
+<span class="text-sm font-body">Финал Осенней классики</span>
+<span class="text-xs font-label opacity-50 uppercase tracking-widest">22 окт</span>
+</li>
+<li class="flex justify-between items-center py-2 border-b border-surface-container">
+<span class="text-sm font-body">Уикенд Рапида и Блица</span>
+<span class="text-xs font-label opacity-50 uppercase tracking-widest">15 окт</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Information/Schedule (Minimalist Grid) -->
+<section class="px-12 py-24 bg-surface-container">
+<h2 class="text-4xl font-headline font-bold mb-16 text-center italic tracking-tight">Еженедельный протокол</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1">
+<div class="bg-surface-container-lowest p-10 h-64 flex flex-col justify-between">
+<span class="text-sm font-label uppercase tracking-widest font-bold opacity-30">Пн / Ср</span>
+<div>
+<h4 class="font-headline text-2xl mb-2">Теория дебютов</h4>
+<p class="text-sm font-body text-on-surface-variant">Интенсивный анализ классических и гипермодернистских начал.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-10 h-64 flex flex-col justify-between">
+<span class="text-sm font-label uppercase tracking-widest font-bold opacity-30">Вт / Чт</span>
+<div>
+<h4 class="font-headline text-2xl mb-2">Тактические упражнения</h4>
+<p class="text-sm font-body text-on-surface-variant">Распознавание паттернов и расчет под цейтнотом.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-10 h-64 flex flex-col justify-between">
+<span class="text-sm font-label uppercase tracking-widest font-bold opacity-30">Пятница</span>
+<div>
+<h4 class="font-headline text-2xl mb-2">Лекции гроссмейстеров</h4>
+<p class="text-sm font-body text-on-surface-variant">Разбор исторических матчей и психологической борьбы.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-10 h-64 flex flex-col justify-between">
+<span class="text-sm font-label uppercase tracking-widest font-bold opacity-30">Выходные</span>
+<div>
+<h4 class="font-headline text-2xl mb-2">Лига Гильдии</h4>
+<p class="text-sm font-body text-on-surface-variant">Рейтинговые турниры для игроков любого уровня.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Monochrome Statistics -->
+<section class="bg-black text-white px-12 py-32 overflow-hidden relative">
+<!-- Decorative Large Serif Letter in Background -->
+<div class="absolute right-0 top-0 text-[30rem] font-headline font-extrabold opacity-[0.03] select-none pointer-events-none leading-none -mr-32 -mt-32">
+                ♘
+            </div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-24 relative z-10">
+<div class="text-center md:text-left">
+<span class="text-8xl lg:text-[10rem] font-headline font-extrabold tracking-tighter leading-none block mb-4">12к</span>
+<span class="text-sm font-label uppercase tracking-[0.4em] opacity-50 block">Активные участники</span>
+</div>
+<div class="text-center md:text-left">
+<span class="text-8xl lg:text-[10rem] font-headline font-extrabold tracking-tighter leading-none block mb-4">450+</span>
+<span class="text-sm font-label uppercase tracking-[0.4em] opacity-50 block">Проведено турниров</span>
+</div>
+<div class="text-center md:text-left">
+<span class="text-8xl lg:text-[10rem] font-headline font-extrabold tracking-tighter leading-none block mb-4">24</span>
+<span class="text-sm font-label uppercase tracking-[0.4em] opacity-50 block">Гроссмейстеры</span>
+</div>
+</div>
+</section>
+<!-- Newsletter Section (Editorial style) -->
+<section class="px-12 py-24 bg-surface flex flex-col items-center">
+<div class="max-w-3xl w-full text-center">
+<h2 class="text-5xl font-headline font-bold mb-8">Вестник Оракула</h2>
+<p class="text-lg font-body mb-12 opacity-70">Получайте ежемесячные обзоры мира стратегии, обновления гильдии и решения задач прямо на вашу почту.</p>
+<div class="flex flex-col sm:flex-row gap-0 w-full">
+<input class="flex-grow bg-surface-container-high border-none px-8 py-6 text-sm font-label uppercase tracking-widest focus:ring-2 focus:ring-black" placeholder="ВАШ АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ" type="email"/>
+<button class="bg-black text-white px-12 py-6 text-sm font-label uppercase tracking-widest font-bold hover:bg-primary-fixed transition-all">Подписаться</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component: Footer) -->
+<footer class="bg-gray-100 dark:bg-gray-900 text-black dark:text-white border-t border-gray-200 dark:border-gray-800">
+<div class="grid grid-cols-4 w-full px-12 py-16 gap-8">
+<div class="col-span-4 lg:col-span-1">
+<div class="text-xl font-bold text-black dark:text-white font-serif mb-6 uppercase tracking-tighter">МОНОЛИТ</div>
+<p class="text-xs font-body text-gray-600 dark:text-gray-400 max-w-xs leading-relaxed uppercase tracking-widest">
+                    Ведущее мировое учреждение в области шахматного мастерства и стратегического образования с 1924 года.
+                </p>
+</div>
+<div class="col-span-2 lg:col-span-1">
+<h5 class="font-headline text-md mb-6 font-bold uppercase tracking-wider">Навигация</h5>
+<ul class="space-y-4 text-sm font-body">
+<li><a class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-opacity uppercase tracking-widest" href="#">Архив</a></li>
+<li><a class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-opacity uppercase tracking-widest" href="#">Карта сайта</a></li>
+<li><a class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-opacity uppercase tracking-widest" href="#">Рейтинги</a></li>
+</ul>
+</div>
+<div class="col-span-2 lg:col-span-1">
+<h5 class="font-headline text-md mb-6 font-bold uppercase tracking-wider">Юридическая информация</h5>
+<ul class="space-y-4 text-sm font-body">
+<li><a class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-opacity uppercase tracking-widest" href="#">Конфиденциальность</a></li>
+<li><a class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-opacity uppercase tracking-widest" href="#">Условия</a></li>
+<li><a class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-opacity uppercase tracking-widest" href="#">Cookies</a></li>
+</ul>
+</div>
+<div class="col-span-4 lg:col-span-1">
+<h5 class="font-headline text-md mb-6 font-bold uppercase tracking-wider">Сеть Гильдии</h5>
+<div class="flex gap-4 mb-8">
+<span class="material-symbols-outlined text-black dark:text-white cursor-pointer hover:opacity-50">terminal</span>
+<span class="material-symbols-outlined text-black dark:text-white cursor-pointer hover:opacity-50">interests</span>
+<span class="material-symbols-outlined text-black dark:text-white cursor-pointer hover:opacity-50">book_2</span>
+<span class="material-symbols-outlined text-black dark:text-white cursor-pointer hover:opacity-50">chess</span>
+</div>
+<a class="text-black dark:text-white underline text-sm uppercase font-bold tracking-widest" href="#">Связаться с нами</a>
+</div>
+</div>
+<div class="px-12 py-8 border-t border-gray-200 dark:border-gray-800 text-center">
+<p class="text-[10px] font-label text-gray-500 uppercase tracking-[0.5em]">© 2024 ШАХМАТНАЯ ГИЛЬДИЯ «МОНОЛИТ». ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p>
+</div>
+</footer>
+</body></html>
